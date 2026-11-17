@@ -13,6 +13,10 @@ env:
   SIZE_THRESHOLD_PERCENTAGE: 70
   SIZE_BASE_GB: 1
 
+concurrency:
+  group: nightly-build-size-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   # Gate the whole workflow so it only runs on the upstream repository, never on forks.
